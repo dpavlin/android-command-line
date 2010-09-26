@@ -1,6 +1,7 @@
 #!/bin/sh
 
 image=emulator/android-x86-1.6-r2.boot.qcow2
+test ! -z "$1" && image=$1
 
 if mount | grep /tmp/qemu ; then
 	echo "umount"
@@ -13,7 +14,7 @@ fi
 
 echo "mount $image"
 
-qemu-nbd emulator/android-x86-1.6-r2.boot.qcow2 &
+qemu-nbd $image &
 sudo nbd-client localhost 1024 /dev/nbd0
 mkdir /tmp/qemu
 echo "wait for partitions"
