@@ -13,4 +13,4 @@ sdcard=emulator/$name.sdcard.qcow2
 test -f $boot   || qemu-img create $boot   512M && cdrom="-cdrom emulator/$name.iso"
 test -f $sdcard || qemu-img create $sdcard 256M
 
-kvm -soundhw ac97 -net nic -net user -hda $boot -hdb $sdcard $cdrom
+kvm -redir tcp:5555::5555 -soundhw ac97 -net nic -net user -hda $boot -hdb $sdcard $cdrom
