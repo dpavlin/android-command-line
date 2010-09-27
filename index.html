@@ -660,7 +660,14 @@ $ <b>service call window 18 i32 0</b> # portrait
 <pre>
 # <b>am start -a android.intent.action.MAIN -n com.android.settings/.Settings</b>
 </pre>
-			</section>
+
+			<h2>Send intent broadcasts</h2>
+
+<pre>
+# <b>am broadcast –a NotifyServiceStart</b>
+# <b>am broadcast –a NotifyServiceStop</b>
+</pre>
+			
 			</section>
         </div>
 
