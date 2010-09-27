@@ -550,7 +550,7 @@ dpavlin@android:/srv/cyanogen$ <b>make -j8</b>
 			<h2>Android-x86</h2>
 
             <ul class="bulleted"> 
-				<li>Latest release <a href="http://android-x86.googlecode.com/files/android-x86-1.6-r2.iso">1.6r2</a> works on EeePC 701, VrtualBox and kvm</li>
+				<li>Latest release Donut <a href="http://android-x86.googlecode.com/files/android-x86-1.6-r2.iso">1.6r2</a> works on EeePC 701, VrtualBox and kvm</li>
 				<li><a href="http://www.android-x86.org/getsourcecode">compile source</a></li>
 				<li>Froyo (2.2) and Eclair (2.1) in various stages of <em>working</em>
 				<li>networking in kvm: boot in <b>debug</b> mode and in first prompt load network module:
@@ -558,6 +558,7 @@ dpavlin@android:/srv/cyanogen$ <b>make -j8</b>
 # <b>modprobe 8139cp</b>
 </pre>
 				<li>add <tt>vga=788</tt> to kernel line in <tt>grub</tt> to make kvm happy
+				<li>generally all drivers must be loaded before Android starts!
             </ul>
 			</section>
         </div>
