@@ -634,6 +634,13 @@ dpavlin@x200:~$ <b>adb shell dumpsys > dumpsys.txt
 			<p>
 			Where did <b>2</b> came from?
 			<a href="http://www.androidjavadoc.com/1.0_r1_src/constant-values.html#com.android">com.android.internal.telephony.ITelephony.Stub</a>
+			</p>
+
+			<h2>Rotate screen in emulator</h2>
+<pre>
+$ <b>service call window 18 i32 1</b> # landscape
+$ <b>service call window 18 i32 0</b> # portrait
+</pre>
 
 			</section>
         </div>
