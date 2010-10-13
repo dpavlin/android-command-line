@@ -1,0 +1,14 @@
+#!/system/bin/sh
+
+# chmod 755 /system/etc/init.d/99swapon
+
+swap=/dev/block/mmcblk0p3
+
+mknod $swap b 179 3
+echo -n "swap $swap"
+
+echo 155 > /sys/class/leds/blue/brightness
+swapon $swap
+sysctl -w vm.swappiness=40
+cat /proc/swaps
+echo 0 > /sys/class/leds/blue/brightness
