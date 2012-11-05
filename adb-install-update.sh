@@ -18,11 +18,13 @@ if [ ! -e "$1" ] ; then
 	exit 1
 fi
 
-#adb push $1 /sdcard/update.zip
+adb shell "rm /sdcard/update.zip"
+
+adb push $1 /sdcard/update.zip || exit 1
 
 adb remount
 adb shell "echo 'boot-recovery ' > /cache/recovery/command"
 adb shell "echo '--update_package=/sdcard/update.zip' >> /cache/recovery/command"
-#adb shell "echo '--wipe_cache' >> /cache/recovery/command"
+adb shell "echo '--wipe_cache' >> /cache/recovery/command"
 adb shell "echo 'reboot' >> /cache/recovery/command"
 adb shell "reboot recovery"
