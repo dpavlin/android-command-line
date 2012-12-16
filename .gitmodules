@@ -1,0 +1,3 @@
+[submodule "rk-tools"]
+	path = rk-tools
+	url = https://github.com/rk3066/rk-tools.git
