@@ -51,7 +51,7 @@ foreach ( split(/,/,$cmdline) ) {
 
 if ( $mode eq 'update' || $mode eq 'restore' ) {
 	warn "# reboot Android\n";
-	system("$rkflashtool r");
+	system("$rkflashtool b");
 }
 
 __DATA__
