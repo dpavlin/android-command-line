@@ -1,0 +1,15 @@
+README
+======
+
+This repository hosts tools for Arnova tablet development.
+
+rkflashtool
+===========
+
+Originally from http://forum.xda-developers.com/showthread.php?t=1286305
+
+If a new version appears, please create a fork of this repo, add changes, 
+and request a pull. The changes will be merged into this repository. If 
+the original author also sets up a repository, please let me know.
+
+
