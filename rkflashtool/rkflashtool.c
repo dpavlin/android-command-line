@@ -129,6 +129,7 @@ int main(int argc, char **argv) {
 
     if (!(h = libusb_open_device_with_vid_pid(c, 0x2207, 0x290a)))
         if (!(h = libusb_open_device_with_vid_pid(c, 0x2207, 0x281a)))
+        if (!(h = libusb_open_device_with_vid_pid(c, 0x2207, 0x300a)))
             fatal("cannot open device\n");
 
     if (libusb_kernel_driver_active(h, 0) == 1) {
