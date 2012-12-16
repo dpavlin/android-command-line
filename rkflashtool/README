@@ -1,7 +1,13 @@
 README
 ======
 
-This repository hosts tools for Arnova tablet development.
+This modified repository hosts tools for Arnova tablet development from
+
+https://github.com/justgr/arnova-tools
+
+to support rk3066 Android dongles.
+
+Use install-debian.sh to install dependecies and type make to build it
 
 rkflashtool
 ===========
