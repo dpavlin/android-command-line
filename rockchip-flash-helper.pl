@@ -4,7 +4,8 @@ use strict;
 
 use Getopt::Long;
 
-my $mode = lc($ARGV[0]) || die "usage: $0 (backup|restore|update)\n";
+my @files = @ARGV;
+my $mode = lc(shift @files) || die "usage: $0 (backup|restore|update|flash /path/to/file.img)\n";
 
 my $cmdline = <DATA>;
 my $rkflashtool = '/virtual/android/android-command-line/rkflashtool/rkflashtool';
@@ -43,6 +44,21 @@ foreach ( split(/,/,$cmdline) ) {
 			warn "SKIP $start $size $name - not found in update\n";
 			next;
 		}
+
+	} elsif ( $mode eq 'flash' ) {
+
+		foreach my $file ( @files ) {
+			if (  $file =~ m/$name/ && -e $file ) {
+				$cmd = "$rkflashtool w $start $size < $file";
+			} else {
+				next;
+			}
+		}
+
+		next if ! $cmd;
+
+	} else {
+		die "unknown mode $mode\n";
 	}
 
 	warn "# $cmd\n";
