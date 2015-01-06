@@ -18,3 +18,22 @@ dropbearkey -t rsa -f /data/dropbear/dropbear_rsa_host_key
 dropbearkey -t dss -f /data/dropbear/dropbear_dss_host_key
 exit
 EOF
+
+adb pull /etc/init.local.rc /tmp/init.local.rc
+
+grep dropbear /tmp/init.local.rc || (
+cat << EOF >> /tmp/init.local.rc
+
+# start Dropbear (ssh server) service on boot
+service sshd /system/xbin/dropbear -s
+   user  root
+   group root
+   oneshot
+
+EOF
+
+adb shell mount -o remount,rw /system
+adb push /tmp/init.local.rc /etc/init.local.rc
+
+)
+
