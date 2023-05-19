@@ -1,3 +1,12 @@
 Bunch of helper scripts to use Android from command line
 
 http://dpavlin.github.com/android-command-line
+
+Connect to your Android screen:
+
+https://github.com/Genymobile/scrcpy
+
+apt install scrcpy
+scrcpy
+
+
